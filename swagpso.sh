@@ -4,7 +4,7 @@
 #---------------------------------------------cli options---------------------------------------------
 
 	usage() {
-		echo "github: "
+		echo "github: https://github.com/1337Rin/Swag-PSO"
 		echo
 		echo "SwagPSO or Swag Powershell Obfuscator is a simple automated Powershell script obfuscator."
 		echo "The '-s' flag is the only required option, other options will use defaults if not provided."
@@ -50,7 +50,7 @@ echo """  ______  __       __  ______   ______       _______   ______   ______
   \▓▓▓▓▓▓ \▓▓      \▓▓\▓▓   \▓▓ \▓▓▓▓▓▓      \▓▓       \▓▓▓▓▓▓  \▓▓▓▓▓▓ 
                                                                         
 By: 1337Rin
-github:
+github: https://github.com/1337Rin/Swag-PSO
 """
 
 	if [[ -e $script ]]
